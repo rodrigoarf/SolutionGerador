@@ -27,6 +27,7 @@ namespace SmartAdmin.Gerador
             WriteToConsole("Para gerar contexto completo digite:.............1");
             WriteToConsole("Para gerar somente camada de dados digite:.......2");
             WriteToConsole("Para gerar somente camada de domínio digite:.....3");
+            WriteToConsole("Para gerar somente camada de frontend digite:....4");
 
             var AnswerQuestion = String.Empty;
 
@@ -34,9 +35,9 @@ namespace SmartAdmin.Gerador
             do
             {
                 AnswerQuestion = ReadFromConsole();
-                if ((AnswerQuestion == "1") || (AnswerQuestion == "2") || (AnswerQuestion == "3")) { break; }
+                if ((AnswerQuestion == "1") || (AnswerQuestion == "2") || (AnswerQuestion == "3") || (AnswerQuestion == "4")) { break; }
 
-            } while ((AnswerQuestion != "1") || (AnswerQuestion != "2") || (AnswerQuestion != "3"));
+            } while ((AnswerQuestion != "1") || (AnswerQuestion != "2") || (AnswerQuestion != "3") || (AnswerQuestion == "4"));
 
             // Processing...
             MakeProcess(AnswerQuestion);
@@ -52,6 +53,7 @@ namespace SmartAdmin.Gerador
             {                                                
                 MakeData();
                 MakeDomain();
+                MakeController();
             }
             else if (AnswerQuestion == "2")
             {
@@ -60,6 +62,10 @@ namespace SmartAdmin.Gerador
             else if (AnswerQuestion == "3")
             {
                 MakeDomain();
+            }
+            else if (AnswerQuestion == "4")
+            {
+                MakeController();
             }
 
             WriteToConsole(" ");
@@ -102,6 +108,25 @@ namespace SmartAdmin.Gerador
             WriteToConsole("-> " + BuildClass.BuildUnitOfWork(GroupTables));
             if (VERIFY_TIME) { TimeSleep(MILLISECONDS); }
 
+        }
+
+        private static void MakeController()
+        {
+            var ConfigTable = new TableToClass();
+            var BuildClass = new Presentation();
+            var GroupTables = ConfigTable.GetTableMapper();
+
+            WriteToConsole(" ");
+            WriteToConsole("Gerando Controllers...");
+
+            WriteToConsole("-> " + BuildClass.BuildBase());
+            if (VERIFY_TIME) { TimeSleep(MILLISECONDS); }
+
+            foreach (var Table in GroupTables)
+            {              
+                WriteToConsole("-> " + BuildClass.BuildController(Table.Value.ClassName));
+                if (VERIFY_TIME) { TimeSleep(MILLISECONDS); }
+            }
         }
 
         private static void MakeBase()

@@ -41,7 +41,7 @@ namespace SmartAdmin.Gerador.Infrastructure
             TextClass.AppendLine("/// Esta classe abstrata não pode ser instanciada. O objetivo desta classe é fornecer uma definição de metodos");
             TextClass.AppendLine("/// base comuns para que várias outras classes derivadas desta possam compartilhar metodos por 'override'.");
             TextClass.AppendLine("/// </summary>");
-            TextClass.AppendLine("namespace " + ProjectName + ".Domain");
+            TextClass.AppendLine("namespace " + ProjectName + ".Domain.Model");
             TextClass.AppendLine("{");
             TextClass.AppendLine("    public abstract class " + DataModel.ClassName);
             TextClass.AppendLine("    {");
@@ -173,7 +173,7 @@ namespace SmartAdmin.Gerador.Infrastructure
             TextClass.AppendLine("using " + ProjectName + ".Data;");
             TextClass.AppendLine("using " + ProjectName + ".Data.Model;");
             TextClass.AppendLine("");
-            TextClass.AppendLine("namespace " + ProjectName + ".Domain");
+            TextClass.AppendLine("namespace " + ProjectName + ".Domain.Model");
             TextClass.AppendLine("{");
             TextClass.AppendLine("    public partial class " + String.Concat(ClassName, Sufixo) + " : " + ClassName);
             TextClass.AppendLine("    {");
@@ -182,7 +182,7 @@ namespace SmartAdmin.Gerador.Infrastructure
             TextClass.AppendLine("}");
 
             var FileName = String.Format(@"{0}.{1}", String.Concat(ClassName, Sufixo), "cs");
-            var Diretory = String.Format(@"{0}\{1}", FilePath, ClassName);
+            var Diretory = String.Format(@"{0}\{1}\{2}", FilePath, "Models", ClassName);
             var FullFile = String.Format(@"{0}\{1}", Diretory, FileName);
 
             if (!File.Exists(FullFile))
@@ -196,6 +196,79 @@ namespace SmartAdmin.Gerador.Infrastructure
             return FileName;
         }
 
+        public String BuildModelsValidations(KeyValuePair<String, ModelConfig> TableSetting)
+        {
+            var TableName = TableSetting.Key;
+            var DataModel = TableSetting.Value;
+            var TableSchema = Utils.GetTableSchema(TableName, DatabaseType);
+            var SufixoValidation = "Validation";
+
+            var TextClass = new StringBuilder();
+            TextClass.AppendLine("using System;");
+            TextClass.AppendLine("using System.Text;");
+            //TextClass.AppendLine("using System.Web.Mvc;");
+            TextClass.AppendLine("using System.Collections;");
+            TextClass.AppendLine("using System.Collections.Generic;");
+            TextClass.AppendLine("using System.Linq;");
+            TextClass.AppendLine("using System.ComponentModel.DataAnnotations;");
+            TextClass.AppendLine("using System.Threading.Tasks;");
+            TextClass.AppendLine("");
+            TextClass.AppendLine("namespace " + ProjectName + ".Domain.Model");
+            TextClass.AppendLine("{");
+            TextClass.AppendLine("    public class " + String.Concat(DataModel.ClassName,SufixoValidation));
+            TextClass.AppendLine("    {");
+
+            var ColumnDataType = String.Empty;
+
+            foreach (var ColumnMapper in TableSchema.CollectionColumn)
+            {
+                if (ColumnMapper.ColumnKey != "pk")
+                {
+                    ColumnDataType = Utils.GetColumnType(ColumnMapper.DataType);
+
+                    if (ColumnMapper.IsNullable == "no")
+                    {
+                        //if ((ColumnMapper.DataType == "text") || (ColumnMapper.DataType == "longtext") || (ColumnMapper.DataType == "tinytext") || (ColumnMapper.DataType == "mediumtext"))
+                        //{
+                        //    TextClass.AppendLine("        [AllowHtml]");
+                        //}
+
+                        TextClass.AppendLine("        [Required(ErrorMessage = \"Campo " + ColumnMapper.ColumnName + " é obrigatório.\")]");
+
+                        if (ColumnMapper.MaxLenght != String.Empty)
+                        {
+                            // tipos mysql e alguns do oracle
+                            if ((ColumnMapper.DataType == "text") || (ColumnMapper.DataType == "longtext") || (ColumnMapper.DataType == "tinytext") || (ColumnMapper.DataType == "mediumtext"))
+                            {
+                                TextClass.AppendLine("        [StringLength(65535, ErrorMessage = \"A descrição do campo " + ColumnMapper.ColumnName + " deve ter no máximo 65535 caracteres.\")]");
+                            }
+                            else
+                            {
+                                TextClass.AppendLine("        [StringLength(" + ColumnMapper.MaxLenght + ", ErrorMessage = \"A descrição do campo " + ColumnMapper.ColumnName + " deve ter no máximo " + ColumnMapper.MaxLenght + " caracteres.\")]");
+                            }
+                        }
+
+                        TextClass.AppendLine("        public " + ColumnDataType + " " + ColumnMapper.ColumnName + " { get; set; }");
+                        TextClass.AppendLine("");
+                    }
+                }
+            }    
+
+            TextClass.AppendLine("    }");
+            TextClass.AppendLine("}");
+            
+            var FileName = String.Format(@"{0}.{1}", String.Concat(DataModel.ClassName, SufixoValidation), "cs");
+            var Diretory = String.Format(@"{0}\{1}\{2}", FilePath, "Models", DataModel.ClassName);
+            var FullFile = String.Format(@"{0}\{1}", Diretory, FileName);
+            var DirInfo = new DirectoryInfo(Diretory);
+
+            if (!DirInfo.Exists) { DirInfo.Create(); }
+            using (TextWriter Writer = File.CreateText(FullFile)) { Writer.WriteLine(TextClass.ToString()); }
+            TextClass = null;
+                                                                        
+            return FileName;
+        }
+
         public String BuildUnitOfWork(Dictionary<String, ModelConfig> GroupTables)
         {
             TextClass = new StringBuilder();
@@ -204,7 +277,7 @@ namespace SmartAdmin.Gerador.Infrastructure
             TextClass.AppendLine("using System.Linq;");
             TextClass.AppendLine("using System.Text;");
             TextClass.AppendLine("using System.Threading.Tasks;");
-            TextClass.AppendLine("using " + ProjectName + ".Domain;");
+            TextClass.AppendLine("using " + ProjectName + ".Domain.Model;");
             TextClass.AppendLine("");
             TextClass.AppendLine("namespace " + ProjectName + ".Domain");
             TextClass.AppendLine("{");
@@ -277,86 +350,13 @@ namespace SmartAdmin.Gerador.Infrastructure
 
             if (!DirInfo.Exists) { DirInfo.Create(); }
             using (TextWriter Writer = File.CreateText(Diretory)) { Writer.WriteLine(TextClass.ToString()); }
-            return FileName;   
-    }
-
-        public String BuildModelsValidations(KeyValuePair<String, ModelConfig> TableSetting)
-        {
-            var TableName = TableSetting.Key;
-            var DataModel = TableSetting.Value;
-            var TableSchema = Utils.GetTableSchema(TableName, DatabaseType);
-            var SufixoValidation = "Validation";
-
-            var TextClass = new StringBuilder();
-            TextClass.AppendLine("using System;");
-            TextClass.AppendLine("using System.Text;");
-            //TextClass.AppendLine("using System.Web.Mvc;");
-            TextClass.AppendLine("using System.Collections;");
-            TextClass.AppendLine("using System.Collections.Generic;");
-            TextClass.AppendLine("using System.Linq;");
-            TextClass.AppendLine("using System.ComponentModel.DataAnnotations;");
-            TextClass.AppendLine("using System.Threading.Tasks;");
-            TextClass.AppendLine("");
-            TextClass.AppendLine("namespace " + DataModel.NameSpaceDomain);
-            TextClass.AppendLine("{");
-            TextClass.AppendLine("    public class " + DataModel.ClassName + "Dto");
-            TextClass.AppendLine("    {");
-
-            var ColumnDataType = String.Empty;
-
-            foreach (var ColumnMapper in TableSchema.CollectionColumn)
-            {
-                if (ColumnMapper.ColumnKey != "pk")
-                {
-                    ColumnDataType = Utils.GetColumnType(ColumnMapper.DataType);
-
-                    if (ColumnMapper.IsNullable == "no")
-                    {
-                        //if ((ColumnMapper.DataType == "text") || (ColumnMapper.DataType == "longtext") || (ColumnMapper.DataType == "tinytext") || (ColumnMapper.DataType == "mediumtext"))
-                        //{
-                        //    TextClass.AppendLine("        [AllowHtml]");
-                        //}
-
-                        TextClass.AppendLine("        [Required(ErrorMessage = \"Campo " + ColumnMapper.ColumnName + " é obrigatório.\")]");
-
-                        if (ColumnMapper.MaxLenght != String.Empty)
-                        {
-                            // tipos mysql e alguns do oracle
-                            if ((ColumnMapper.DataType == "text") || (ColumnMapper.DataType == "longtext") || (ColumnMapper.DataType == "tinytext") || (ColumnMapper.DataType == "mediumtext"))
-                            {
-                                TextClass.AppendLine("        [StringLength(65535, ErrorMessage = \"A descrição do campo " + ColumnMapper.ColumnName + " deve ter no máximo 65535 caracteres.\")]");
-                            }
-                            else
-                            {
-                                TextClass.AppendLine("        [StringLength(" + ColumnMapper.MaxLenght + ", ErrorMessage = \"A descrição do campo " + ColumnMapper.ColumnName + " deve ter no máximo " + ColumnMapper.MaxLenght + " caracteres.\")]");
-                            }
-                        }
-
-                        TextClass.AppendLine("        public " + ColumnDataType + " " + ColumnMapper.ColumnName + " { get; set; }");
-                        TextClass.AppendLine("");
-                    }
-                }
-            }    
-
-            TextClass.AppendLine("    }");
-            TextClass.AppendLine("}");
-            
-            var FileName = String.Format(@"{0}.{1}", String.Concat(DataModel.ClassName, SufixoValidation), "cs");
-            var Diretory = String.Format(@"{0}\{1}", FilePath, DataModel.ClassName);
-            var FullFile = String.Format(@"{0}\{1}", Diretory, FileName);
-            var DirInfo = new DirectoryInfo(Diretory);
-
-            if (!DirInfo.Exists) { DirInfo.Create(); }
-            using (TextWriter Writer = File.CreateText(FullFile)) { Writer.WriteLine(TextClass.ToString()); }
-            TextClass = null;
-                                                                        
             return FileName;
         }
 
         private string CreateFile(String ClassName)
         {
             var FileName = String.Format(@"{0}.{1}", ClassName, "cs");
-            var Diretory = String.Format(@"{0}\{1}", FilePath, ClassName);
+            var Diretory = String.Format(@"{0}\{1}\{2}", FilePath, "Models", ClassName);
             var FullFile = String.Format(@"{0}\{1}", Diretory, FileName);
             var DirInfo = new System.IO.DirectoryInfo(Diretory);
 

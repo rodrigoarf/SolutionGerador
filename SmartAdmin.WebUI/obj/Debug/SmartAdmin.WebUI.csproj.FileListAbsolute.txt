@@ -1,0 +1,11 @@
+D:\Projetos\SolutionGerador\SmartAdmin.WebUI\bin\SmartAdmin.WebUI.dll
+D:\Projetos\SolutionGerador\SmartAdmin.WebUI\bin\SmartAdmin.WebUI.pdb
+D:\Projetos\SolutionGerador\SmartAdmin.WebUI\bin\SmartAdmin.Data.dll
+D:\Projetos\SolutionGerador\SmartAdmin.WebUI\bin\SmartAdmin.Domain.dll
+D:\Projetos\SolutionGerador\SmartAdmin.WebUI\bin\EntityFramework.dll
+D:\Projetos\SolutionGerador\SmartAdmin.WebUI\bin\SmartAdmin.Data.pdb
+D:\Projetos\SolutionGerador\SmartAdmin.WebUI\bin\SmartAdmin.Domain.pdb
+D:\Projetos\SolutionGerador\SmartAdmin.WebUI\bin\EntityFramework.xml
+D:\Projetos\SolutionGerador\SmartAdmin.WebUI\obj\Debug\SmartAdmin.WebUI.csprojResolveAssemblyReference.cache
+D:\Projetos\SolutionGerador\SmartAdmin.WebUI\obj\Debug\SmartAdmin.WebUI.dll
+D:\Projetos\SolutionGerador\SmartAdmin.WebUI\obj\Debug\SmartAdmin.WebUI.pdb

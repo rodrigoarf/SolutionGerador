@@ -13,5 +13,6 @@ namespace SmartAdmin.Gerador.Models
         public string NameSpaceMapper { get; set; }
         public string NameSpaceDomain { get; set; }
         public string NameSpaceService { get; set; }
+        public Boolean CreateController { get; set; }
     }
 }

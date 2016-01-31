@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace SmartAdmin.Gerador.Enums
 {
     public enum EDataBase
-    { 
+    {
         MySql,
         SqlServer,
         Oracle,

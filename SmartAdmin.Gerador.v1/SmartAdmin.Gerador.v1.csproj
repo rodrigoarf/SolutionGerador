@@ -50,9 +50,10 @@
     <Compile Include="Connection\ConnectionMySql.cs" />
     <Compile Include="Connection\ConnectionOracle.cs" />
     <Compile Include="Connection\ConnectionSqlServer.cs" />
-    <Compile Include="Enums\EnumTypes.cs" />
+    <Compile Include="Enums\EDataBase.cs" />
     <Compile Include="Infrastructure\Data.cs" />
     <Compile Include="Infrastructure\Domain.cs" />
+    <Compile Include="Infrastructure\Presentation.cs" />
     <Compile Include="Infrastructure\Utils.cs" />
     <Compile Include="Interface\IData.cs" />
     <Compile Include="Models\ModelConfig.cs" />
