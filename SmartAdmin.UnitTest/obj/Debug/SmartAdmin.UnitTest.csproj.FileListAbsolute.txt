@@ -14,3 +14,6 @@ C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.UnitTest\bin\Debug\EntityFramework.Sql
 C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.UnitTest\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.UnitTest\bin\Debug\MySql.Data.dll
 C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.UnitTest\bin\Debug\MySql.Data.Entity.EF6.dll
+D:\Projetos\SolutionGerador\SmartAdmin.UnitTest\obj\Debug\SmartAdmin.UnitTest.csprojResolveAssemblyReference.cache
+D:\Projetos\SolutionGerador\SmartAdmin.UnitTest\obj\Debug\SmartAdmin.UnitTest.dll
+D:\Projetos\SolutionGerador\SmartAdmin.UnitTest\obj\Debug\SmartAdmin.UnitTest.pdb

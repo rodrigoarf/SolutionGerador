@@ -47,60 +47,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppContext\DbContext.cs" />
-    <Compile Include="Models\AcessoDto.cs" />
-    <Compile Include="Models\AcessoMapper.cs" />
-    <Compile Include="Models\BancoDto.cs" />
-    <Compile Include="Models\BancoMapper.cs" />
-    <Compile Include="Models\Base.cs" />
-    <Compile Include="Models\CedenteDto.cs" />
-    <Compile Include="Models\CedenteMapper.cs" />
-    <Compile Include="Models\ContatoDto.cs" />
-    <Compile Include="Models\ContatoMapper.cs" />
-    <Compile Include="Models\DominioCCTLDDto.cs" />
-    <Compile Include="Models\DominioCCTLDMapper.cs" />
-    <Compile Include="Models\DominioDto.cs" />
-    <Compile Include="Models\DominioGTLDDto.cs" />
-    <Compile Include="Models\DominioGTLDMapper.cs" />
-    <Compile Include="Models\DominioMapper.cs" />
-    <Compile Include="Models\EmailNewletterDto.cs" />
-    <Compile Include="Models\EmailNewletterMapper.cs" />
-    <Compile Include="Models\EnvioNewletterDto.cs" />
-    <Compile Include="Models\EnvioNewletterMapper.cs" />
-    <Compile Include="Models\InboxDto.cs" />
-    <Compile Include="Models\InboxMapper.cs" />
-    <Compile Include="Models\MensagemDto.cs" />
-    <Compile Include="Models\MensagemEnviadaDto.cs" />
-    <Compile Include="Models\MensagemEnviadaMapper.cs" />
-    <Compile Include="Models\MensagemMapper.cs" />
-    <Compile Include="Models\MenuDto.cs" />
-    <Compile Include="Models\MenuMapper.cs" />
-    <Compile Include="Models\MenuUsuarioDto.cs" />
-    <Compile Include="Models\MenuUsuarioMapper.cs" />
-    <Compile Include="Models\SessionsDto.cs" />
-    <Compile Include="Models\SessionsMapper.cs" />
-    <Compile Include="Models\TipoContatoDto.cs" />
-    <Compile Include="Models\TipoContatoMapper.cs" />
-    <Compile Include="Models\TipoNewletterDto.cs" />
-    <Compile Include="Models\TipoNewletterMapper.cs" />
-    <Compile Include="Models\UsuarioDto.cs" />
-    <Compile Include="Models\UsuarioMapper.cs" />
-    <Compile Include="Models\WebsiteDto.cs" />
-    <Compile Include="Models\WebsiteMapper.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\IRepository.cs" />
-    <Compile Include="Repository\RepositoryGeneric.cs" />
-    <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="bin\Debug\" />
+    <Content Include="bin\Debug\SmartAdmin.Data.dll" />
+    <Content Include="bin\Debug\SmartAdmin.Data.pdb" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
