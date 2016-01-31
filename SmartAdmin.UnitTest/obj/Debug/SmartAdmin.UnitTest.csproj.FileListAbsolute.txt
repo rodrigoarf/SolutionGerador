@@ -1,0 +1,16 @@
+C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.UnitTest\obj\Debug\SmartAdmin.UnitTest.csprojResolveAssemblyReference.cache
+C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.UnitTest\bin\Debug\SmartAdmin.UnitTest.dll
+C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.UnitTest\bin\Debug\SmartAdmin.UnitTest.pdb
+C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.UnitTest\bin\Debug\SmartAdmin.Data.dll
+C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.UnitTest\bin\Debug\SmartAdmin.Domain.dll
+C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.UnitTest\bin\Debug\EntityFramework.dll
+C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.UnitTest\bin\Debug\SmartAdmin.Data.pdb
+C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.UnitTest\bin\Debug\SmartAdmin.Domain.pdb
+C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.UnitTest\bin\Debug\EntityFramework.xml
+C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.UnitTest\obj\Debug\SmartAdmin.UnitTest.dll
+C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.UnitTest\obj\Debug\SmartAdmin.UnitTest.pdb
+C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.UnitTest\bin\Debug\SmartAdmin.UnitTest.dll.config
+C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.UnitTest\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.UnitTest\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.UnitTest\bin\Debug\MySql.Data.dll
+C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.UnitTest\bin\Debug\MySql.Data.Entity.EF6.dll

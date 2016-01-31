@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C28F1863-E1BA-4094-B896-8632BA25F82F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SmartAdmin.Domain</RootNamespace>
+    <AssemblyName>SmartAdmin.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Acesso\Acesso.cs" />
+    <Compile Include="Acesso\AcessoSpecialized.cs" />
+    <Compile Include="Acesso\AcessoValidation.cs" />
+    <Compile Include="Banco\Banco.cs" />
+    <Compile Include="Banco\BancoSpecialized.cs" />
+    <Compile Include="Banco\BancoValidation.cs" />
+    <Compile Include="Cedente\Cedente.cs" />
+    <Compile Include="Cedente\CedenteSpecialized.cs" />
+    <Compile Include="Cedente\CedenteValidation.cs" />
+    <Compile Include="Contato\Contato.cs" />
+    <Compile Include="Contato\ContatoSpecialized.cs" />
+    <Compile Include="Contato\ContatoValidation.cs" />
+    <Compile Include="DominioCCTLD\DominioCCTLD.cs" />
+    <Compile Include="DominioCCTLD\DominioCCTLDSpecialized.cs" />
+    <Compile Include="DominioCCTLD\DominioCCTLDValidation.cs" />
+    <Compile Include="DominioGTLD\DominioGTLD.cs" />
+    <Compile Include="DominioGTLD\DominioGTLDSpecialized.cs" />
+    <Compile Include="DominioGTLD\DominioGTLDValidation.cs" />
+    <Compile Include="Dominio\Dominio.cs" />
+    <Compile Include="Dominio\DominioSpecialized.cs" />
+    <Compile Include="Dominio\DominioValidation.cs" />
+    <Compile Include="EmailNewletter\EmailNewletter.cs" />
+    <Compile Include="EmailNewletter\EmailNewletterSpecialized.cs" />
+    <Compile Include="EmailNewletter\EmailNewletterValidation.cs" />
+    <Compile Include="EnvioNewletter\EnvioNewletter.cs" />
+    <Compile Include="EnvioNewletter\EnvioNewletterSpecialized.cs" />
+    <Compile Include="EnvioNewletter\EnvioNewletterValidation.cs" />
+    <Compile Include="Inbox\Inbox.cs" />
+    <Compile Include="Inbox\InboxSpecialized.cs" />
+    <Compile Include="Inbox\InboxValidation.cs" />
+    <Compile Include="MensagemEnviada\MensagemEnviada.cs" />
+    <Compile Include="MensagemEnviada\MensagemEnviadaSpecialized.cs" />
+    <Compile Include="MensagemEnviada\MensagemEnviadaValidation.cs" />
+    <Compile Include="Mensagem\Mensagem.cs" />
+    <Compile Include="Mensagem\MensagemSpecialized.cs" />
+    <Compile Include="Mensagem\MensagemValidation.cs" />
+    <Compile Include="MenuUsuario\MenuUsuario.cs" />
+    <Compile Include="MenuUsuario\MenuUsuarioSpecialized.cs" />
+    <Compile Include="MenuUsuario\MenuUsuarioValidation.cs" />
+    <Compile Include="Menu\Menu.cs" />
+    <Compile Include="Menu\MenuSpecialized.cs" />
+    <Compile Include="Menu\MenuValidation.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sessions\Sessions.cs" />
+    <Compile Include="Sessions\SessionsSpecialized.cs" />
+    <Compile Include="Sessions\SessionsValidation.cs" />
+    <Compile Include="TipoContato\TipoContato.cs" />
+    <Compile Include="TipoContato\TipoContatoSpecialized.cs" />
+    <Compile Include="TipoContato\TipoContatoValidation.cs" />
+    <Compile Include="TipoNewletter\TipoNewletter.cs" />
+    <Compile Include="TipoNewletter\TipoNewletterSpecialized.cs" />
+    <Compile Include="TipoNewletter\TipoNewletterValidation.cs" />
+    <Compile Include="UnitOfWork.cs" />
+    <Compile Include="Usuario\Usuario.cs" />
+    <Compile Include="Usuario\UsuarioSpecialized.cs" />
+    <Compile Include="Usuario\UsuarioValidation.cs" />
+    <Compile Include="Website\Website.cs" />
+    <Compile Include="Website\WebsiteSpecialized.cs" />
+    <Compile Include="Website\WebsiteValidation.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SmartAdmin.Data\SmartAdmin.Data.csproj">
+      <Project>{9c3f61bb-073b-4d19-9cbb-10ad681b009e}</Project>
+      <Name>SmartAdmin.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

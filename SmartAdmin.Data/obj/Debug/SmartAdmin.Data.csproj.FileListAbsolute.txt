@@ -1,0 +1,10 @@
+C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.Data\bin\Debug\SmartAdmin.Data.dll.config
+C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.Data\bin\Debug\SmartAdmin.Data.dll
+C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.Data\bin\Debug\SmartAdmin.Data.pdb
+C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.Data\bin\Debug\EntityFramework.dll
+C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.Data\bin\Debug\EntityFramework.xml
+C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.Data\obj\Debug\SmartAdmin.Data.dll
+C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.Data\obj\Debug\SmartAdmin.Data.pdb
+C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.Data\obj\Debug\SmartAdmin.Data.csprojResolveAssemblyReference.cache

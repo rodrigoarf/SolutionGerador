@@ -1,0 +1,6 @@
+C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.Gerador.v1\bin\Debug\SmartAdmin.Gerador.v1.exe.config
+C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.Gerador.v1\bin\Debug\SmartAdmin.Gerador.v1.exe
+C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.Gerador.v1\bin\Debug\SmartAdmin.Gerador.v1.pdb
+C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.Gerador.v1\obj\Debug\SmartAdmin.Gerador.v1.exe
+C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.Gerador.v1\obj\Debug\SmartAdmin.Gerador.v1.pdb
+C:\Users\Rodrigo\Desktop\Teste\SmartAdmin.Gerador.v1\obj\Debug\SmartAdmin.Gerador.v1.csprojResolveAssemblyReference.cache
