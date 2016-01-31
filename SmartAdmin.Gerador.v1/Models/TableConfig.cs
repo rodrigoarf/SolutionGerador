@@ -7,7 +7,7 @@ using SmartAdmin.Gerador.Models;
 
 namespace SmartAdmin.Gerador.Models
 {
-    public sealed class TableConfig
+    public sealed class TableToClass
     {
         public Dictionary<String, ModelConfig> GetTableMapper()
         {

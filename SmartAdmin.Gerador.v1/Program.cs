@@ -80,7 +80,7 @@ namespace SmartAdmin.Gerador
 
         private static void MakeDomain()
         {
-            var ConfigTable = new TableConfig();
+            var ConfigTable = new TableToClass();
             var BuildClass = new Domain();
             var GroupTables = ConfigTable.GetTableMapper();
 
@@ -117,7 +117,7 @@ namespace SmartAdmin.Gerador
 
         private static void MakeModels()
         {
-            var ConfigTable = new TableConfig();
+            var ConfigTable = new TableToClass();
             var BuildClass = new Data();
             var GroupTables = ConfigTable.GetTableMapper();
 
@@ -133,7 +133,7 @@ namespace SmartAdmin.Gerador
 
         private static void MakeMappers()
         {
-            var ConfigTable = new TableConfig();
+            var ConfigTable = new TableToClass();
             var BuildClass = new Data();
             var GroupTables = ConfigTable.GetTableMapper();
 
@@ -149,7 +149,7 @@ namespace SmartAdmin.Gerador
 
         private static void MakeContext()
         {
-            var ConfigTable = new TableConfig();
+            var ConfigTable = new TableToClass();
             var BuildClass = new Data();
             var GroupTables = ConfigTable.GetTableMapper();
 
@@ -184,7 +184,7 @@ namespace SmartAdmin.Gerador
 
         private static void MakeUnitOfWork()
         {
-            var ConfigTable = new TableConfig();
+            var ConfigTable = new TableToClass();
             var BuildClass = new Data();
             var GroupTables = ConfigTable.GetTableMapper();
 
