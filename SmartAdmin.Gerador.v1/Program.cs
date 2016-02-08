@@ -241,7 +241,7 @@ namespace SmartAdmin.Gerador
             Console.WriteLine("#***********************************************************");
             Console.WriteLine("# Projeto: SmartAdmin.Gerador");
             Console.WriteLine("# Console: Gerador de Camadas para Aplicações");
-            Console.WriteLine("# Empresa: Sorocred");
+            Console.WriteLine("# Empresa: Agilecore Software");
             Console.WriteLine("#***********************************************************");
 
             WriteToConsole(ConsoleCopyRight.ToString());

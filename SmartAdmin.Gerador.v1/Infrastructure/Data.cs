@@ -21,6 +21,8 @@ namespace SmartAdmin.Gerador.Infrastructure
         private String SufixoMapper = "Mapper";
         private String FilePath = ConfigurationManager.AppSettings["CamadaDeAcessos"].ToString();
         private String ProjectName = ConfigurationManager.AppSettings["NomeDoProjeto"].ToString();
+        private String DatabaseSchema = ConfigurationManager.AppSettings["NomeDoSchema"].ToString();
+        
         private EDataBase DatabaseType = SmartAdmin.Gerador.Program.DatabaseType;
 
         public String BuildBase()
@@ -237,53 +239,12 @@ namespace SmartAdmin.Gerador.Infrastructure
                                 TextClass.AppendLine("            this.Property(_ => _." + ColumnMapper.ColumnName + ");");
                         }
                     } 
-
-                    // estrutura antiga
-                    //if (ColumnMapper.DataType == "longblob") //--> Tratamento somente para longblob
-                    //{
-                    //    if (ColumnMapper.IsNullable == "no")
-                    //    {
-                    //        TextClass.AppendLine("            this.Property(_ => _." + ColumnMapper.ColumnName + ").IsRequired();");
-                    //    }
-                    //    else
-                    //    {
-                    //        TextClass.AppendLine("            this.Property(_ => _." + ColumnMapper.ColumnName + ");");
-                    //    }
-                    //}
-                    //else if (ColumnMapper.DataType == "longtext") //--> Tratamento somente para longtext
-                    //{
-                    //    if (ColumnMapper.IsNullable == "no")
-                    //    {
-                    //        TextClass.AppendLine("            this.Property(_ => _." + ColumnMapper.ColumnName + ").IsRequired();");
-                    //    }
-                    //    else
-                    //    {
-                    //        TextClass.AppendLine("            this.Property(_ => _." + ColumnMapper.ColumnName + ");");
-                    //    }
-                    //}
-                    //else
-                    //{
-                    //    if (ColumnMapper.IsNullable == "no")
-                    //    {
-                    //        if (ColumnMapper.MaxLenght != String.Empty)
-                    //            TextClass.AppendLine("            this.Property(_ => _." + ColumnMapper.ColumnName + ").IsRequired().HasMaxLength(" + ColumnMapper.MaxLenght + ");");
-                    //        else
-                    //            TextClass.AppendLine("            this.Property(_ => _." + ColumnMapper.ColumnName + ").IsRequired();");
-                    //    }
-                    //    else if (ColumnMapper.IsNullable == "yes")
-                    //    {
-                    //        if (ColumnMapper.MaxLenght != String.Empty)
-                    //            TextClass.AppendLine("            this.Property(_ => _." + ColumnMapper.ColumnName + ").HasMaxLength(" + ColumnMapper.MaxLenght + ");");
-                    //        else
-                    //            TextClass.AppendLine("            this.Property(_ => _." + ColumnMapper.ColumnName + ");");
-                    //    }
-                    //}
                 }
             }
 
             TextClass.AppendLine("");
             TextClass.AppendLine("            // Table & Column Mappings");
-            TextClass.AppendLine("            this.ToTable(\"" + TableName + "\", \"pentanyx\");");
+            TextClass.AppendLine("            this.ToTable(\"" + TableName + "\", \"" + DatabaseSchema.ToLower() + "\");");
             TextClass.AppendLine("");
             TextClass.AppendLine("            // Propertys Relationship Database Table Columns");
 
