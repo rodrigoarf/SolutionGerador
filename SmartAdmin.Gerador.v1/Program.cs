@@ -14,14 +14,14 @@ namespace SmartAdmin.Gerador
     public class Program
     {
         private const int MILLISECONDS = 1000;
-        private static bool VERIFY_TIME = false;
+        private static bool VERIFY_TIME = Convert.ToBoolean(ConfigurationManager.AppSettings["Temporizador"].ToString());
         public static EDataBase DatabaseType = EDataBase.MySql;
 
         static void Main(string[] args)
         {
             // Header...
             WriteHeader();
-            if (VERIFY_TIME) { TimeSleep(MILLISECONDS); } 
+            if (VERIFY_TIME) { TimeSleep(MILLISECONDS); }
 
             // Ask...            
             WriteToConsole("Para gerar contexto completo digite:.............1");
@@ -46,11 +46,11 @@ namespace SmartAdmin.Gerador
         #region Métodos privados de geração
 
         private static void MakeProcess(string AnswerQuestion)
-        {             
+        {
             Console.ForegroundColor = ConsoleColor.Gray;
 
             if (AnswerQuestion == "1")
-            {                                                
+            {
                 MakeData();
                 MakeDomain();
                 MakeController();
@@ -123,7 +123,7 @@ namespace SmartAdmin.Gerador
             if (VERIFY_TIME) { TimeSleep(MILLISECONDS); }
 
             foreach (var Table in GroupTables)
-            {              
+            {
                 WriteToConsole("-> " + BuildClass.BuildController(Table.Value.ClassName));
                 if (VERIFY_TIME) { TimeSleep(MILLISECONDS); }
             }
@@ -137,7 +137,7 @@ namespace SmartAdmin.Gerador
             WriteToConsole("Gerando BaseModel...");
             WriteToConsole("-> " + BuildClass.BuildBase());
 
-            if (VERIFY_TIME) { TimeSleep(MILLISECONDS); }            
+            if (VERIFY_TIME) { TimeSleep(MILLISECONDS); }
         }
 
         private static void MakeModels()
@@ -152,7 +152,7 @@ namespace SmartAdmin.Gerador
             foreach (var Table in GroupTables)
             {
                 WriteToConsole("-> " + BuildClass.BuildModels(Table));
-                if (VERIFY_TIME) { TimeSleep(MILLISECONDS); }  
+                if (VERIFY_TIME) { TimeSleep(MILLISECONDS); }
             }
         }
 
@@ -168,7 +168,7 @@ namespace SmartAdmin.Gerador
             foreach (var Table in GroupTables)
             {
                 WriteToConsole("-> " + BuildClass.BuildMapper(Table));
-                if (VERIFY_TIME) { TimeSleep(MILLISECONDS); }  
+                if (VERIFY_TIME) { TimeSleep(MILLISECONDS); }
             }
         }
 
@@ -182,7 +182,7 @@ namespace SmartAdmin.Gerador
             WriteToConsole("Gerando Contexto...");
 
             WriteToConsole("-> " + BuildClass.BuildContext(GroupTables));
-            if (VERIFY_TIME) { TimeSleep(MILLISECONDS); }  
+            if (VERIFY_TIME) { TimeSleep(MILLISECONDS); }
         }
 
         private static void MakeRepository()
@@ -193,7 +193,7 @@ namespace SmartAdmin.Gerador
             WriteToConsole("Gerando Repositorio...");
 
             WriteToConsole("-> " + BuildClass.BuildRespository());
-            if (VERIFY_TIME) { TimeSleep(MILLISECONDS); }  
+            if (VERIFY_TIME) { TimeSleep(MILLISECONDS); }
         }
 
         private static void MakeIRepository()
@@ -204,7 +204,7 @@ namespace SmartAdmin.Gerador
             WriteToConsole("Gerando IRepositorio...");
 
             WriteToConsole("-> " + BuildClass.BuildIRespository());
-            if (VERIFY_TIME) { TimeSleep(MILLISECONDS); }  
+            if (VERIFY_TIME) { TimeSleep(MILLISECONDS); }
         }
 
         private static void MakeUnitOfWork()
@@ -217,7 +217,7 @@ namespace SmartAdmin.Gerador
             WriteToConsole("Gerando UnitOfWork...");
 
             WriteToConsole("-> " + BuildClass.BuildUnitOfWork(GroupTables));
-            if (VERIFY_TIME) { TimeSleep(MILLISECONDS); }  
+            if (VERIFY_TIME) { TimeSleep(MILLISECONDS); }
         }
 
         #endregion
