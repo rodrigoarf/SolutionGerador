@@ -14,7 +14,7 @@ namespace SmartAdmin.Gerador
     public class Program
     {
         private const int MILLISECONDS = 1000;
-        private static bool VERIFY_TIME = Convert.ToBoolean(ConfigurationManager.AppSettings["Temporizador"].ToString());
+        private static bool VERIFY_TIME = false;
         public static EDataBase DatabaseType = EDataBase.MySql;
 
         static void Main(string[] args)
